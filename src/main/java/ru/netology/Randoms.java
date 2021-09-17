@@ -3,12 +3,12 @@ package ru.netology;
 import java.util.Iterator;
 import java.util.Random;
 
-public class Randoms implements Iterable<Integer>{
+public class Randoms implements Iterable<Integer> {
 
     protected int min;
     protected int max;
 
-    public Randoms(int min, int max){
+    public Randoms(int min, int max) {
         this.min = min;
         this.max = max;
     }
@@ -20,18 +20,18 @@ public class Randoms implements Iterable<Integer>{
 
             @Override
             public boolean hasNext() {
-                return next <= max;
+                return true;
             }
 
 
             @Override
             public Integer next() {
                 Random random = new Random();
-                int diff = max-min;
+                int diff = max - min;
                 int num = random.nextInt(diff + 1);
                 num += min;
                 next++;
-                if(next > max)next = min;
+                if (next > max) next = min;
                 return num;
             }
         };
